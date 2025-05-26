@@ -3,6 +3,8 @@ from logistic_regression import LogisticRegression
 import pandas as pd 
 import numpy as np
 
+import joblib #to save the model 
+
 from sklearn.model_selection import train_test_split
 
 from sklearn.metrics import accuracy_score
@@ -59,5 +61,13 @@ def main():
     print(accuracy)
 
     print(classification_report(y1_test_encoded, y1_pred, target_names=le.classes_))
+
+    #save the model 
+    joblib.dump(log_reg, 'ML Model/logistic_regression_model.pkl') 
+    
+    #save the column transformer and label encoder
+    #so that we can use them later to transform new data
+    joblib.dump(column_transformer, 'ML Model/column_transformer.pkl')
+    joblib.dump(le, 'ML Model/label_encoder.pkl') 
   
 main()
