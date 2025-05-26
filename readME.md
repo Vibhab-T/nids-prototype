@@ -1,3 +1,5 @@
+OPEN README FOR CLARITY
+
 Structure:
 
 | requests containing features | ---> | Flask App                          |
